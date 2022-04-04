@@ -1,0 +1,21 @@
+
+
+
+
+INSERT INTO `movies`(`title`, `director`, `myear`, `rating`) VALUES ("fargo","coen",1996,8.2);
+
+
+INSERT INTO `movies`(`title`, `director`, `myear`, `rating`) VALUES ("Raising","coen",1987,7.6);
+
+
+
+INSERT INTO `movies`(`title`, `director`, `myear`, `rating`) VALUES ("Spiderman","Raimi",2000,7.4);
+
+
+INSERT INTO `movies`(`title`, `director`, `myear`, `rating`) VALUES ("Wonder Boys","hanson",2000,7.6);
+
+
+Qn1
+SELECT * FROM `movies` WHERE myear>1997;
+Qn2
+SELECT * FROM `movies` WHERE myear>1997 and director="hanson";
