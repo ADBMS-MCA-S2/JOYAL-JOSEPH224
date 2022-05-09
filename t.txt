@@ -1,0 +1,1 @@
+ db.Students.update({sname:"bincy"},{$set:{sname:"ram"}})
