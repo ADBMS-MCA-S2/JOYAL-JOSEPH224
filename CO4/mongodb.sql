@@ -171,3 +171,6 @@ WriteResult({ "nInserted" : 1 })
 { "degree" : "Bsc" }
 { "degree" : "BArch" }
 { "degree" : "BCA" }
+ db.Students.find({$and:[{degree:"BCA"},{cgpa:{$gt:"6"}},{cgpa:{$lt:"8"}}]})
+{ "_id" : ObjectId("62789fb9a28d9b04e040f68e"), "srn" : "101", "sname" : "joyal", "degree" : "BCA", "sem" : "3", "cgpa" : "7.6" }
+{ "_id" : ObjectId("6278a430e04a35e50319f0b1"), "srn" : "112", "sname" : "Patrick", "degree" : "BCA", "sem" : "6", "cgpa" : "6.2" }
