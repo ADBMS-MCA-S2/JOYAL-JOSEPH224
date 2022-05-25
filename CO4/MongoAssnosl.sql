@@ -24,3 +24,10 @@ db.studlist.find({dept:"mca",gender:"female"},{name:1,mark:1,_id:0}).pretty();
 
 db.studlist.find({gender:"male",grade:"A+"},{name:1,_id:0}).pretty();
 { "name" : { "fname" : "martin", "lname" : "luthor" } }
+
+
+
+ db.studlist.find({dept:"mech"},{name:1,_id:0}).sort({mark:-1}).limit(3)
+{ "name" : { "fname" : "partha", "lname" : "sarthi" } }
+{ "name" : { "fname" : "jane", "lname" : "dine" } }
+{ "name" : { "fname" : "marp", "lname" : "terpan" } }
