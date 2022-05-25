@@ -19,3 +19,8 @@ db.studlist.find({dept:"mca",gender:"female"},{name:1,mark:1,_id:0}).pretty();
 { "name" : { "fname" : "priya", "lname" : "yira" }, "mark" : 90 }
 
 
+ db.studlist.aggregate([{$group:{_id:0,"max_mark":{$max:"$mark"}}}])
+{ "_id" : 0, "max_mark" : 94 }
+
+db.studlist.find({gender:"male",grade:"A+"},{name:1,_id:0}).pretty();
+{ "name" : { "fname" : "martin", "lname" : "luthor" } }
