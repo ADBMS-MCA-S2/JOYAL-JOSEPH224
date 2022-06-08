@@ -179,3 +179,55 @@ COMPOUND INDEX
                 "name" : "regno_1_name_1"
         }
 ]
+
+
+
+MULTIKEY INDEXES
+
+
+db.register.createIndex({"mark.maths":1})
+{
+        "numIndexesBefore" : 2,
+        "numIndexesAfter" : 3,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+> db.register.createIndex({"mark.english":1})
+{
+        "numIndexesBefore" : 3,
+        "numIndexesAfter" : 4,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+> db.register.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "regno" : 1,
+                        "name" : 1
+                },
+                "name" : "regno_1_name_1"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "mark.maths" : 1
+                },
+                "name" : "mark.maths_1"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "mark.english" : 1
+                },
+                "name" : "mark.english_1"
+        }
+]
