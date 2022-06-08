@@ -213,38 +213,7 @@ WriteResult({ "nInserted" : 1 })
         "createdCollectionAutomatically" : false,
         "ok" : 1
 }
-> db.register.getIndexes()
-[
-        {
-                "v" : 2,
-                "key" : {
-                        "_id" : 1
-                },
-                "name" : "_id_"
-        },
-        {
-                "v" : 2,
-                "key" : {
-                        "regno" : 1,
-                        "name" : 1
-                },
-                "name" : "regno_1_name_1"
-        },
-        {
-                "v" : 2,
-                "key" : {
-                        "mark.maths" : 1
-                },
-                "name" : "mark.maths_1"
-        },
-        {
-                "v" : 2,
-                "key" : {
-                        "mark.english" : 1
-                },
-                "name" : "mark.english_1"
-        }
-]
+
 > db.comments.getIndexes()
 [
         {
@@ -271,8 +240,7 @@ WriteResult({ "nInserted" : 1 })
 ]
 > db.comments.find({$text:{$search:"\post"}})
 > db.comments.find({$text:{$search:"\ceo\"}})
-uncaught exception: SyntaxError: "" literal not terminated before end of script :
-@(shell):1:43
+
 > db.comments.find({$text:{$search:"\ceo"}})
 { "_id" : ObjectId("62a072a36e2fc1288e065adb"), "name" : "joyal", "post" : "ceo" }
 > db.comments.find({$text:{$search:"\ceo"}},{_id:0})
