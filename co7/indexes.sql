@@ -228,7 +228,7 @@ WriteResult({ "nInserted" : 1 })
                 "key" : {
                         "_fts" : "text",
                         "_ftsx" : 1
-                },
+                }
                 "name" : "post_text",
                 "weights" : {
                         "post" : 1
@@ -238,12 +238,9 @@ WriteResult({ "nInserted" : 1 })
                 "textIndexVersion" : 3
         }
 ]
-> db.comments.find({$text:{$search:"\post"}})
 > db.comments.find({$text:{$search:"\ceo\"}})
 
 > db.comments.find({$text:{$search:"\ceo"}})
 { "_id" : ObjectId("62a072a36e2fc1288e065adb"), "name" : "joyal", "post" : "ceo" }
 > db.comments.find({$text:{$search:"\ceo"}},{_id:0})
 { "name" : "joyal", "post" : "ceo" }
-> db.comments.find({$text:{$search:"\harper"}},{_id:0})
->
