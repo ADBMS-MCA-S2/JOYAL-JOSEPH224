@@ -101,7 +101,7 @@ function(filter) {
 ]
 >
 
-single field
+SINGLE FIELD INDEX
 
 
  db.register.createIndex({regno:1})
@@ -152,6 +152,30 @@ uncaught exception: TypeError: db.dropIndex is not a function :
 [ { "v" : 2, "key" : { "_id" : 1 }, "name" : "_id_" } ]
 
 
-compound indexes
+COMPOUND INDEX
 
-
+ db.register.createIndex({regno:1,name:1})
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+> db.register.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "regno" : 1,
+                        "name" : 1
+                },
+                "name" : "regno_1_name_1"
+        }
+]
