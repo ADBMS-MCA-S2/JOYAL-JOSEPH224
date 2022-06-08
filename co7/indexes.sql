@@ -100,3 +100,58 @@ function(filter) {
         }
 ]
 >
+
+single field
+
+
+ db.register.createIndex({regno:1})
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+> db.register.getIndexes
+function(filter) {
+    var res = this.runCommand("listIndexes", filter);
+
+    if (!res.ok) {
+        if (res.code == ErrorCodes.NamespaceNotFound) {
+            // For compatibility, return []
+            return [];
+        }
+
+        throw _getErrorWithCode(res, "listIndexes failed: " + tojson(res));
+    }
+
+    return new DBCommandCursor(this._db, res).toArray();
+}
+> db.register.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "regno" : 1
+                },
+                "name" : "regno_1"
+        }
+]
+> db.dropIndex({regno:1})
+uncaught exception: TypeError: db.dropIndex is not a function :
+@(shell):1:1
+> db.register.dropIndex({regno:1})
+{ "nIndexesWas" : 2, "ok" : 1 }
+> db.register.getIndexes()
+[ { "v" : 2, "key" : { "_id" : 1 }, "name" : "_id_" } ]
+
+
+compound indexes
+
+
